@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf8 -*-
+
 from django.shortcuts import render
 
 # ----------------------------------------------------------------------------------------------
@@ -11,6 +14,26 @@ from permissions import HorarioPermission
 
 # REST TABLES
 class HorarioViewSet(viewsets.ModelViewSet):
+    """
+    Cabecera y ruta:
+
+# Header 3
+
+```sh
+asdfasdf
+```
+Parámetros de entrada y salida:
+
+| Tipo | Parámetro    | Descripcion |
+| --- | --- | --- |
+| Entrada | `asunto` | Referencia de la hoja de ruta (generalmente la referencia es del primer documento) |
+| Entrada | `comentario` | Comentario adicional referente al envio realizado |
+| Entrada | `remitente` | Codigo de persona "encargado de recepcionar". La primera persona del ministerio de educacion al cual se envia el tramite |
+| Entrada | `destinatario` | Codigo de persona "a quien va dirigido el documento" |
+| Entrada | `fecha_limite_` | Fecha limite para atencion de la hoja de ruta por parte del destinatario |
+| Entrada | `ipx` | Ip del equipo que genera la consulta |
+| Salida | objeto json | La petición genera un objeto de insercion en formato json. |
+    """
     queryset = Horario.objects.all()
     serializer_class = HorarioSerializer
     permission_classes = (HorarioPermission,)

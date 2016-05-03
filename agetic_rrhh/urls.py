@@ -30,5 +30,6 @@ router.register(r'designacion_permiso', views.DesignacionPermisoViewSet)
 urlpatterns = [
     url(r'^api/v2/', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^docs/', include('rest_framework_swagger.urls')),
     url(r'^admin/', admin.site.urls),
 ]
