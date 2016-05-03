@@ -1,4 +1,4 @@
-from models import Funcionario, Horario, HorarioRango, DesignacionHorario, RegistroHorario, Feriados, TipoPermiso, DesignacionPermiso
+from models import Funcionario, Horario, HorarioRango, DesignacionHorario, RegistroHorario, Feriado, TipoPermiso, DesignacionPermiso
 from rest_framework import serializers
 
 
@@ -22,10 +22,10 @@ class RegistroHorarioSerializer(serializers.ModelSerializer):
         model = RegistroHorario
 
 
-class FeriadosSerializer(serializers.ModelSerializer):
+class FeriadoSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Feriados
-
+        model = Feriado
+        
 
 class TipoPermisoSerializer(serializers.ModelSerializer):
     class Meta:

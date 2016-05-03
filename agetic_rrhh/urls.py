@@ -16,20 +16,23 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from control_personal import views
+from rest_framework_jwt.views import obtain_jwt_token
 
 from rest_framework.routers import DefaultRouter
 router = DefaultRouter()
-router.register(r'horario', views.HorarioViewSet)
-router.register(r'horario_rango', views.HorarioRangoViewSet)
-router.register(r'designacion_horario', views.DesignacionHorarioViewSet)
-router.register(r'registro_horario', views.RegistroHorarioViewSet)
-router.register(r'feriados', views.FeriadosViewSet)
-router.register(r'tipo_permiso', views.TipoPermisoViewSet)
-router.register(r'designacion_permiso', views.DesignacionPermisoViewSet)
+router.register(r'horarios', views.HorarioViewSet)
+router.register(r'horario_rangos', views.HorarioRangoViewSet)
+router.register(r'designacion_horarios', views.DesignacionHorarioViewSet)
+router.register(r'registro_horarios', views.RegistroHorarioViewSet)
+router.register(r'feriados', views.FeriadoViewSet)
+router.register(r'tipo_permisos', views.TipoPermisoViewSet)
+router.register(r'designacion_permisos', views.DesignacionPermisoViewSet)
 
 urlpatterns = [
     url(r'^api/v2/', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^docs/', include('rest_framework_swagger.urls')),
     url(r'^admin/', admin.site.urls),
+
+    url(r'^api-token-auth/', obtain_jwt_token),
 ]
