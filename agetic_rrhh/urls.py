@@ -35,4 +35,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
     url(r'^api-token-auth/', obtain_jwt_token),
+    url(r'^home/', views.home),
+    url(r'^confirmar/permiso/$', views.confirmar_permiso),
 ]
